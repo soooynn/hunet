@@ -15,7 +15,7 @@ bucket_name = 'cashmission-prod'
 result_path = r"C:/Users/selectstar/Desktop/pm/1_2913"
 json_file = r'C:/Users/selectstar/Desktop/pm/2913/2913_labeling_found_complete_7a4d4821-69f8-4c55-afb8-71b11e1d7656.json'
 
-#카테고리 ID에 해당하는 이름을 찾
+#카테고리 ID에 해당하는 이름을 찾기
 part_dict = {
     "1": "one",
     "2": "two",
