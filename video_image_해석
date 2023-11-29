@@ -1,0 +1,33 @@
+import cv2
+import os
+
+# 출력 디렉토리와 비디오 파일 경로 설정
+output_dir = 'C:/Users/selectstar/Desktop/pm/로우데이터1_1/vlc-record-2022-05-18-16h17m01s-rtsp___192.168.1.8-'
+filepath = 'C:/Users/selectstar/Desktop/pm/로우데이터1_1/vlc-record-2022-05-18-16h17m01s-rtsp___192.168.1.8-.mp4'
+
+# 비디오 캡처 객체 생성
+vidcap = cv2.VideoCapture(filepath)
+
+# 첫 번째 프레임 읽기
+success, image = vidcap.read()
+
+# 카운터 초기화
+count = 1
+success = True
+
+# 출력 디렉토리가 없으면 생성
+if not os.path.exists(output_dir):
+    os.mkdir(output_dir)
+
+# 비디오의 모든 프레임을 순회
+while success:
+    success, image = vidcap.read()
+    # 5 프레임마다 이미지 저장
+    if count % 5 == 0:
+        cv2.imwrite(output_dir + '/%d.jpg' % (count // 5), image)
+        print("saved image %d.jpg" % (count // 5))
+
+    # ESC 키를 누르면 종료
+    if cv2.waitKey(10) == 27:
+        break
+    count += 1
