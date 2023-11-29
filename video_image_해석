@@ -15,14 +15,12 @@ success, image = vidcap.read()
 count = 1
 success = True
 
-# 출력 디렉토리가 없으면 생성
 if not os.path.exists(output_dir):
     os.mkdir(output_dir)
 
 # 비디오의 모든 프레임을 순회
 while success:
     success, image = vidcap.read()
-    # 5 프레임마다 이미지 저장
     if count % 5 == 0:
         cv2.imwrite(output_dir + '/%d.jpg' % (count // 5), image)
         print("saved image %d.jpg" % (count // 5))
