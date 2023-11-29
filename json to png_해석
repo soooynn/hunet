@@ -10,13 +10,11 @@ import sys
 bucket_name = 'cashmission-prod'
 
 # Configuration Part Start
-
-# result_path = 'C:/Users/gener/Desktop/PyCharm/플젝//2714'
+#경로 설정 
 result_path = r"C:/Users/selectstar/Desktop/pm/1_2913"
 json_file = r'C:/Users/selectstar/Desktop/pm/2913/2913_labeling_found_complete_7a4d4821-69f8-4c55-afb8-71b11e1d7656.json'
 
-# Configuration Part End
-
+#카테고리 ID에 해당하는 이름을 찾
 part_dict = {
     "1": "one",
     "2": "two",
@@ -31,7 +29,7 @@ def get_file_name(url):
 def download_img(url, file_path):
     urllib.request.urlretrieve(url, file_path)
 
-# 이미지를 다운로드하고 파일 경로를 반환하는 함수
+# 이미지를 다운로드하고 파일 경로 반환하는 함수
 def download(url):
     file_name = get_file_name(url)
     file_path = result_path + '/' + file_name
