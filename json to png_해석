@@ -1,3 +1,4 @@
+#모듈과 라이브러리 가져오기
 import json
 import urllib.request
 import os
