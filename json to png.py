@@ -13,17 +13,17 @@ bucket_name = 'cashmission-prod'
 
 # Configuration Part Start
 
-# result_path = 'C:/Users/gener/Desktop/PyCharm/플젝/마젠타/2714'
-result_path = r"C:/Users/selectstar/Desktop/pm/엠폴시스템/1_2913"
-json_file = r'C:/Users/selectstar/Desktop/pm/엠폴시스템/2913/2913_labeling_found_complete_7a4d4821-69f8-4c55-afb8-71b11e1d7656.json'
+# result_path = 'C:/Users/gener/Desktop/PyCharm/플젝//2714'
+result_path = r"C:/Users/selectstar/Desktop/pm/1_2913"
+json_file = r'C:/Users/selectstar/Desktop/pm/2913/2913_labeling_found_complete_7a4d4821-69f8-4c55-afb8-71b11e1d7656.json'
 
 # Configuration Part End
 
 
 part_dict = {
-    "고글": "Goggles",
-    "방독면": "Gas Mask",
-    "실험복": "Lab Coat"
+    "1": "one",
+    "2": "two",
+    "3": "three"
 }
 
 
