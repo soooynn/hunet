@@ -15,22 +15,22 @@ bucket_name = 'cashmission-prod'
 result_path = r"C:/Users/selectstar/Desktop/pm/1_2913"
 json_file = r'C:/Users/selectstar/Desktop/pm/2913/2913_labeling_found_complete_7a4d4821-69f8-4c55-afb8-71b11e1d7656.json'
 
-#카테고리 ID에 해당하는 이름을 찾기
+#라벨링 카테고리 ID에 해당하는 이름을 찾기
 part_dict = {
     "1": "one",
     "2": "two",
     "3": "three"
 }
 
-# URL에서 파일 이름을 추출하는 함수
+# URL에서 파일 이름을 추출
 def get_file_name(url):
     return unquote(url.split('/')[-1])
 
-# 이미지를 다운로드하는 함수
+# 이미지를 다운로드
 def download_img(url, file_path):
     urllib.request.urlretrieve(url, file_path)
 
-# 이미지를 다운로드하고 파일 경로 반환하는 함수
+# 이미지를 다운로드하고 파일 경로 반환
 def download(url):
     file_name = get_file_name(url)
     file_path = result_path + '/' + file_name
@@ -41,7 +41,7 @@ def download(url):
         print("Downloading... %s" % file_name)
     return file_path
 
-# LabelMe 형식의 JSON 데이터를 생성하는 함수
+# LabelMe 형식의 JSON 데이터를 생성
 def labelmeData(labels, categories, image):
     result = {}
     result['version'] = '4.5.6'
@@ -55,30 +55,7 @@ def labelmeData(labels, categories, image):
         one_dict['points'] = [[label['coordinates']['x1'] * image_width, label['coordinates']['y1'] * image_height],
                               [label['coordinates']['x2'] * image_width, label['coordinates']['y2'] * image_height]]
         # one_dict['group_id'] = None
-        one_dict['shape_type'] = 'rectangle'
-        one_dict['flags'] = {}
-        shapes.append(one_dict)
-
-    result['shapes'] = shapes
-    result['imagePath'] = image.split('/')[-1]
-    result['imageData'] = None
-    result['imageHeight'] = image_height
-    result['imageWidth'] = image_width
-    return result
-
-# 카테고리 ID에 해당하는 이름을 찾는 함수
-def getCategoryName(categories, id):
-    for category in categories:
-        if category['id'] == id:
-            try:
-                return part_dict[category['name']]
-            except KeyError:
-                print("14개 부위와 일치하지 않는 카테고리명이 있음: {}".format(category['name']))
-                sys.exit(1)
-
-    raise Exception('해당하는 Id가 없습니다')
-
-# 메인 실행 부분
+        one_dict['shape_t행
 with open(json_file, 'r', encoding='utf-8') as j:
     all_list = json.load(j)
     for one_dict in all_list:
